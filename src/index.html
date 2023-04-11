@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/head.html',{
+"title":"Test Krouli"
+})
+<body>
+@@include('html/header.html',{})
+<main>
+    <section class="banner">
+        <img src="@img/banner.jpg"/>
+    </section>
+    <section class="main-info">
+        <div class="main-info__title">
+            <h1>Walking in Old Tallinn</h1>
+            <a class="main-info__feedback-link btn">Feedback</a>
+        </div>
+        <div class="main-info__text">
+            <p>
+                Welcome to Old Tallinn, the heart of the Estonian capital!
+                The history of the settlement once began from here, and today it is one of the best preserved medieval
+                cities in Europe.
+            </p>
+            <p>
+                I will take you through the streets and doorways and show you where they traded, what they ate, what
+                they sued about and what our Estonian ancestors aspired to.
+            </p>
+            <p>
+                You will visit the oldest pharmacy, get acquainted with the royal privileges, see firsthand a real
+                "gingerbread" house, look into an old tavern, walk along the widest and longest streets of the city and
+                even find out that Tallinn is a lame city!
+            </p>
+            <p>
+                And you will also find beautiful and interesting souvenirs, of course!
+            </p>
+        </div>
+    </section>
+    <section class="slider">
+        <div class="slider__container swiper-container">
+            <div class="slider__wrapper swiper-wrapper ">
+                <div class="slider__item swiper-slide">
+                    <img src="@img/img-1.jpg"/>
+                </div>
+                <div class="slider__item swiper-slide">
+                    <img src="@img/img-2.jpg"/>
+                </div>
+                <div class="slider__item swiper-slide">
+                    <img src="@img/img-3.jpg"/>
+                </div>
+                <div class="slider__item swiper-slide">
+                    <img src="@img/img-4.jpg"/>
+                </div>
+            </div>
+        </div>
+        <div class="slider__controls">
+            <div class="slider__button slider__button_prev"></div>
+            <div class="slider__button slider__button_next"></div>
+        </div>
+    </section>
+    <section class="tours">
+        <h1>Other tours</h1>
+
+        <div class="tours-slider wrapper-container">
+                <div class="tours-slider__wrapper swiper-wrapper tours__list">
+                    <div class="tours__item swiper-slide">
+                        <div class="tours__image">
+                            <img src="@img/tour-img-1.jpg"/>
+                        </div>
+                        <div class="tours__name">
+                            St. Isaac's Cathedral in St. Petersburg
+                        </div>
+                        <div class="tours__text">
+                            One of the highest domed structures in the world.
+                        </div>
+                    </div>
+                    <div class="tours__item swiper-slide">
+                        <div class="tours__image">
+                            <img src="@img/tour-img-2.jpg"/>
+                        </div>
+                        <div class="tours__name">
+                            The Bridge of Peace, Tbilisi
+                        </div>
+                        <div class="tours__text">
+                            Arc-shaped pedestrian bridge made of glass and steel
+                        </div>
+                    </div>
+                    <div class="tours__item swiper-slide">
+                        <div class="tours__image">
+                            <img src="@img/tour-img-3.jpg"/>
+                        </div>
+                        <div class="tours__name">
+                            El Caminito del Rey, Argentina
+                        </div>
+                        <div class="tours__text">
+                            Tango, Open-air Museum, Painting, Art and History
+                        </div>
+                    </div>
+
+                </div>
+        </div>
+        <div class="slider__controls">
+            <div class="tours-slider__button tours-slider__button_prev"></div>
+            <div class="tours-slider__button tours-slider__button_next"></div>
+        </div>
+    </section>
+</main>
+<div class="popup">
+    <div class="popup__wrapper">
+        <a class="popup__close-link"></a>
+        <form action="/submit-feedback" method="POST" class="feedback-form">
+            <div class="feedback-form__title">Feedback</div>
+            <div class="feedback-form__block">
+                <div class="feedback-form__field">
+                    <label for="name">Your name:</label>
+                    <input type="text" id="name" name="name" placeholder="Your name" class="feedback-form__input" autocomplete="off" required>
+                </div>
+                <div class="feedback-form__field">
+                    <label for="email">Email address:</label>
+                    <input type="email" id="email" name="email" placeholder="Email address" class="feedback-form__input" autocomplete="off" required>
+                </div>
+                <div class="feedback-form__field">
+                    <label for="phone">Your phone:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Your phone" class="feedback-form__input" autocomplete="off" required>
+                </div>
+                <div class="feedback-form__field">
+                    <label for="trip">Choose a trip:</label>
+
+                    <div class="feedback-form__select dropdown" id="trip">
+                        <div class="dropdown__toggle dropdown-toggle" tabindex="0">
+                            <input type="hidden" name="dropdown-value">
+                            <span>Select an option</span>
+                            <i class="dropdown__arrow"></i>
+                        </div>
+                        <ul class="dropdown__list">
+                            <li class="dropdown__item" data-value="tallin">Walking in Old Tallinn</li>
+                            <li class="dropdown__item" data-value="spb">St. Isaac's Cathedral</li>
+                            <li class="dropdown__item" data-value="tbilisi">The Bridge of Peace</li>
+                            <li class="dropdown__item" data-value="el-caminito">El Caminito del Rey</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="feedback-form__block">
+                <div class="feedback-form__radio-list">
+                    <div class="feedback-form__radio">
+                        <input type="radio" id="reviews" name="feedback-type" value="reviews" checked="checked">
+                        <label class="btn" for="reviews">Reviews and suggestions</label>
+                    </div>
+
+                    <div class="feedback-form__radio">
+                        <input type="radio" id="question" name="feedback-type" value="question">
+                        <label class="btn" for="question">Question about content</label>
+                    </div>
+
+                    <div class="feedback-form__radio">
+                        <input type="radio" id="complaint" name="feedback-type" value="complaint">
+                        <label class="btn" for="complaint">Complaints</label>
+                    </div>
+
+                    <div class="feedback-form__radio">
+                        <input type="radio" id="other" name="feedback-type" value="other">
+                        <label class="btn" for="other">Other</label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="feedback-form__block">
+                <label for="message">Describe your question:</label>
+                <textarea id="message" name="message" placeholder="Describe your question" class="feedback-form__textarea"></textarea>
+            </div>
+            <div class="feedback-form__block feedback-form__block_controls">
+                <div class="feedback-form__checkbox">
+                    <input type="checkbox" id="consent" name="consent" value="yes" required>
+                    <label for="consent">Даю согласие на обработку.</label>
+                </div>
+                <input type="submit" value="Send" class="btn feedback-form__btn">
+            </div>
+        </form>
+    </div>
+</div>
+@@include('html/footer.html',{})
+</body>
+</html>
